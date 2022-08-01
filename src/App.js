@@ -5,6 +5,7 @@ import { Link, Routes, Route } from 'react-router-dom'
 import Pagina2 from './Pages/Pagina2';
 import PaginaCard from './Pages/PaginaCard';
 import Products from './Pages/Products';
+import PaginaForm from './Pages/PagForm';
 
 function App () {
   const [isOpen, setIsOpen] = useState(false)
@@ -32,6 +33,11 @@ function App () {
                 Estas son tus compras del día de hoy
               </Link>
             </NavItem>
+            <NavItem>
+              <Link to='/agregar-producto' className='nav-link'>
+                Agrega un nuevo producto al catalogo
+              </Link>
+            </NavItem>
             
           </Nav>
         </Collapse>
@@ -43,7 +49,8 @@ function App () {
               <Route path='/' element={<h1>Página de prueba</h1>} />
               <Route path='productos' element={<Products />} />
               <Route path='tus-compras' element={<PaginaCard />} />
-              <Route path='tu-historial-de-compra' element={<Pagina2 />} /> 
+              <Route path='tu-historial-de-compra' element={<Pagina2 />} />
+              <Route path='agregar-producto' element={<PaginaForm />} /> 
             </Routes>
           </div>
         </div>
