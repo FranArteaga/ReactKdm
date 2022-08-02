@@ -1,29 +1,27 @@
 import { CardBody, CardTitle, CardText, img, Button, Card } from "reactstrap"
+import { Link } from 'react-router-dom'
 
-const CardCustom = () => {
+const CardCustom = (productProps) => {
 
-    return(
-       <Card
-  color="warning"
-  style={{
-    width: '18rem'
-  }}
->
-  <img
-    alt="Card image"
-    src="https://www.facebook.com/gatitos.qctd/"/>
-  <CardBody>
-    <CardTitle tag="h5">
-      Gatitos
-    </CardTitle>
-    <CardText>
-    Un gato te puede ofrecer momentos únicos de cariño y diversión, aunque también es una tarea que implica responsabilidad y tiempo. Éste es el primer aspecto que debes valorar adecuadamente si piensas en la adopción de gatos o gatitos bebés.
-    </CardText>
-    <Button>
-      Púchale
-    </Button>
-  </CardBody>
-</Card> 
+const {imagen, nombre, descripcion, precio } = productProps.product
+const { productId } = productProps.productKey
+   
+
+return(
+      <div className='col' key={productId}>
+      <Link to='/'>
+        <div className='card h-100 '>
+          <img src={imagen} className='card-img-top h-50' alt='...' />
+          <div className='card-body '>
+            <h5 className='card-title'>{nombre}</h5>
+            <p className='card-text'>{`${descripcion!==undefined ? descripcion.substring(0,55): ""}`}</p>
+            <p className='card-text'>{precio}</p>
+            <button type="button" className=' btn btn-primary'>Agregar al carrito</button>
+
+          </div>
+        </div>
+      </Link>
+    </div>
     )
 }
 export default CardCustom

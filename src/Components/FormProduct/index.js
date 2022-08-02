@@ -29,13 +29,13 @@ function Form () {
   }
 
   return (
-    <div className='App'>
-      <div className='container'>
+    <div className='App '>
+      <div className='container '>
         <div className='row'>
-          <div className='col-12 col-md-6'>
+          <div className='col-12 col-md-12 '>
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className='bg-dark text-white p-3 border rounded'
+              className='bg-secondary text-white p-3 border rounded'
             >
                <div className='form-group mb-3'>
                 <label htmlFor=''>Coloca la url de tu imagen</label>
@@ -48,7 +48,7 @@ function Form () {
                 />
                 {errors.imagen && errors.imagen.type === 'required' && (
                   <div className='alert alert-danger mt-3' role='alert'>
-                    Este campo es requerido!
+                    Este campo es requerido
                   </div>
                 )}
               </div>
@@ -58,12 +58,12 @@ function Form () {
                   type='text'
                   className='form-control'
                   name='name'
-                  placeholder='Nombre del producto'
+                  
                   {...register('nombre', { required: true, maxLength: 30 })}
                 />
                 {errors.nombre && errors.nombre.type === 'required' && (
                   <div className='alert alert-danger mt-3' role='alert'>
-                    Este campo es requerido!
+                    Este campo es requerido
                   </div>
                 )}
                 {errors.nombre && errors.nombre.type === 'maxLength' && (
@@ -78,7 +78,7 @@ function Form () {
                   type='text'
                   className='form-control'
                   name='name'
-                  {...register('descripcion', { required: true, maxLength: 100})}
+                  {...register('descripcion', { required: true, maxLength: 250})}
                 />
                 {errors.descripcion && errors.descripcion.type === 'required' && (
                   <div className='alert alert-danger mt-3' role='alert'>
@@ -105,7 +105,7 @@ function Form () {
                     </div>
                   )}   
               </div>
-              /**asignar alerta onClick de exito al subir el producto  */
+              {/* //asignar alerta onClick de exito al subir el producto */}
               <button type='submit' className='btn btn-primary'> 
                 Guardar Producto
               </button>
